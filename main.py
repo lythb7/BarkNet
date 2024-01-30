@@ -14,6 +14,7 @@ import wiringpi
 print("Initializing CNN...")
 myModel = model.BarkCNN()
 
+phone_number = "+962791234567"
 
 gps_coords = ()
 q = Queue.Queue()
@@ -117,7 +118,7 @@ with tf.Session() as sess:
 				time.sleep(0.1)
 				ser.write("AT+CMGF=1\r\n")
 				time.sleep(0.1)
-				ser.write("AT+CMGS=+962798334636\r\n")
+				ser.write("AT+CMGS=" + phone_number + "\r\n")
 				time.sleep(0.1)
 				ser.write("The sender is possibly being attacked by a dog\r\n")
 				time.sleep(0.1)
